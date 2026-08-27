@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=1" />
+<title>Cocina POS</title>
+<meta name="theme-color" content="#14171A" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="Cocina POS" />
+<link rel="apple-touch-icon" href="data:image/png;base64,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" />
+<link rel="icon" href="data:image/png;base64,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" />
+<link rel="manifest" href="data:application/manifest+json;base64,eyJuYW1lIjogIkNvY2luYSBQT1MiLCAic2hvcnRfbmFtZSI6ICJDb2NpbmEgUE9TIiwgInN0YXJ0X3VybCI6ICIuIiwgImRpc3BsYXkiOiAic3RhbmRhbG9uZSIsICJiYWNrZ3JvdW5kX2NvbG9yIjogIiMxNDE3MUEiLCAidGhlbWVfY29sb3IiOiAiIzE0MTcxQSIsICJvcmllbnRhdGlvbiI6ICJwb3J0cmFpdCIsICJpY29ucyI6IFt7InNyYyI6ICJkYXRhOmltYWdlL3BuZztiYXNlNjQsaVZCT1J3MEtHZ29BQUFBTlNVaEVVZ0FBQWdBQUFBSUFDQUlBQUFCN0drT3RBQUFOSEVsRVFWUjRuTzNjd1hIY1JoQ0dVY2lsRUZRbGw2Nk93SkhvNUZBY2hVUFJ5WkU0QXQ4VmhnK3IycUpKaWx3dUFVeDMvKytkVmZJQXMrZ1BzNlQxNGRQbkx4c0FlWDVadlFBQTFoQUFnRkFDQUJCS0FBQkNDUUJBS0FFQUNDVUFBS0VFQUNDVUFBQ0VFZ0NBVUFJQUVFb0FBRUlKQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWdsQUFBaEJJQWdGQUNBQkJLQUFCQ0NRQkFLQUVBQ0NVQUFLRUVBQ0NVQUFDRUVnQ0FVQUlBRU9yajZnVU05ODlmdjYxZUF2VDIrNS8vcmw3Q1dCOCtmZjZ5ZWcxRG1QVndHbFhZaFFEY3o4U0hJdlRnUGdMd1p1WStsS1VFYnlJQU56SDBvUjB4ZUpVQXZNTG9oOVprNEFVQzhEeHpINFpSZ3FjRTRER2pId2FUZ1ljRTRBZHpINklvd1NZQW05RVB3Y0l6RUIwQW94L1lnak1RR2dDakgzZ2tNQU9KL3hpYzZRODhGVGdac2s0QWdSc012RlhPVVNEb0JHRDZBN2ZJbVJVUko0Q2M3UVIyTlA0b01QOEVZUG9EOXhrL1BTYWZBTVp2SG5DT3FVZUJzU2NBMHgvWXk5UjVNak1BVTNjTFdHWGtWSm4yRmRESVRRTHFtUFIxMEtnVGdPa1BIRzNTbkprVGdFbTdBbFEyWnRvTUNjQ1kvUUJhbURGekpnUmd4azRBdlF5WVBPMERNR0FQZ0thNno1L2VBZWgrOTRIdVdrK2h4Z0ZvZmQrQk1mck9vcTRCNkh2SGdYbWFUcVNXQVdoNnI0SEJPczZsZmdIb2VKZUJCTzJtVTdNQXRMdS9RSlJlTTZwVEFIcmRXU0JUbzBuVkpnQ043aWtRcnN1OGFoTUFBUGJWSXdCZGNncHcwV0pxTlFoQWkvc0k4RWo5MlZVOUFQWHZJTURQRko5ZzFRTUF3RUZLQjZCNFBBRmVWWG1PMVExQTVic0djTHV5MDZ4dUFBQTRWTkVBbEEwbXdCMXF6clNLQWFoNXB3RGVvK0JrcXhnQUFFNVFMZ0FGSXdtd2kycnpyVllBcXQwZGdIMlZtbksxQWdEQWFRb0ZvRlFZQVE1U1o5WVZDZ0FBWjZvU2dEcEpCRGhha1lsWEpRQUFuS3hFQUlyRUVPQTBGZVplaVFBQWNENEJBQWkxUGdBVnprRUE1MXMrL2RZSEFJQWxGZ2RnZVFBQkZsbzdBNTBBQUVJSkFFQ29sUUh3L1EvQXdrbm9CQUFRYWxrQXZQNERYS3lhaDA0QUFLRUVBQ0NVQUFDRVdoTUFQd0FBZUdqSlZIUUNBQWdsQUFDaEZnVEE5ejhBVDUwL0c1MEFBRUlKQUVBb0FRQUlKUUFBb2M0T2dKOEFBL3pNeVJQU0NRQWdsQUFBaEJJQWdGQUNBQkJLQUFCQ0NRQkFxRk1ENEhkQUFWNTI1cHgwQWdBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUtpUHF4Y0FiZno2eDk4di80SHYzNzZlc3hMWWhRREFTMTRkK2ovN3cySkFmUUlBejNqVDNILzViMUFDeWhJQStKLzNqLzVuLzBJWm9DQUJnQjkySC8xUC8zSVpvQlMvQlFUYmR2RDBQL20vQWpkeUFpRGR5VVBaVVlBNm5BQ0l0dXFWM0ZHQUNnU0FYR3Vuc0Fhd25BQVFxc0w4cmJBR2t2a1pBSEZLalYwL0VtQWhKd0N5bEpyK1Z6Vlh4WGdDUUpES2M3YnkycGhLQUVoUmY4TFdYeUhEQ0FCQUtBRWdRcGVYNnk3clpBWUJZTDVlVTdYWGFtbE5BQml1NHp6dHVHWTZFZ0FtNnp0Sis2NmNSZ1NBc2JyUDBPN3JwejRCQUFnbEFNdzA0L1Y1eGxWUWxnQXcwS1M1T2VsYXFFWUFBRUlKQU5QTWUyV2VkMFVVSVFBQW9RU0FVYWErTEUrOUx0WVNBT2FZUFNWblh4MUxDQUJBS0FGZ2lJUVg1SVJyNUV3Q0FCQktBSmdnNTlVNDUwbzVnUUFBaEJJQTJrdDdLVTY3WG80akFBQ2hCQUFnbEFEUVcrYjNJWmxYemU0RUFDQ1VBTkJZOG90dzhyV3pGd0VBQ1BWeDlRSW83ZFhYek8vZnZwNnpFcDU2WVhmc0M3Y1FBUDduclY4c1BQcnpaODRkMzRHOFlPRyswSWdBc0czN0RkUHIzMlBpbEdKZmVKWUFwRHZvUGZyeTF4bzMxU2dCRHdsQXJoTytRamt1QTc3L2VTZUZaaE9BVENkUFQ3T21MRnNUVGdDeUxIeHhObXZLc2pXeC9IOEFRU3A4YmJMTEdpcGN5RHp1YWlBQlNGSG44YTZ6RWg3NTlZKy83VTRVQVppdjRGTmRjRWxjMlpvY0FqQmM1WWY1dnJWVnZxSXgzT1FRQWpCWi9jZTQvZ3BqT2FVbEVJQ3h1ank5WGRhWnllN01KZ0F6OVhwdWU2MDJqZDBaVEFBRzZ2akUzcmptanBjMmdOcytsUUJNMC9kWjdidnlCSFpuSkFFWXBmdFQybjM5czltZGVRUmdqaG5QNTR5cm1NcnVEQ01Bd0J0b3dDUUNNTVNreC9KbjF6THBHbHV6RVdNSXdBVHpIc2g1VndRRkNVQjdVMmZsMU91YXdlN01JQURBUFRSZ0FBSG9iZlpET1B2cUJyQkIzUWxBWXdtUFg4STF3aW9DUUE5S1VKTjlhVTBBdXNwNThIS3V0Q2tiMUpjQUFJUVNnSmJTM3JuU3JyY2RHOVNVQVBUallhTWdIOHVPQkFBZ2xBQTA0ejJMc253NDJ4RUFnRkFDQU96R0lhQVhBZWpFMHdYc1NBQ0FQWGxOYVVRQTJ2QmNBZnNTQUdCblhsYTZFQUNBVUFMUWcxY3FZSGNDQU96UEswc0xBdENBWndrNGdnQUFoQklBNEJCT3J2VUpBRUFvQWFqT2F4UndFQUVBanVMMXBUZ0JBQWdsQUFDaEJLQTBKMmpnT0FJQUhNaExUR1VDQUJCS0FBQkNDVUJkenM3QW9RUUFPSlpYbWJJRUFDQ1VBQUNFRWdDQVVBSUFFRW9BQUVJSkFFQW9BU2pLYjg0eGljOXpUUUlBRUVvQUFFSUpBRUFvQVFBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUNnQkFBZ2xBQUNoQkFBZ2xBQUFoQklBZ0ZBQ0FCQktBQUJDQ1VCUjM3OTlYYjBFMkkzUGMwMENBQkJLQUFCQ0NRQkFLQUVBQ0NVQUFLRUVBQ0NVQUFESDhqdWdaUWxBWFI0YjRGQUNBQkJLQUFCQ0NRQndJTjlrVmlZQXBYbDRnT01JQUVBb0FRQUlKUURBVVh5SFdad0FWT2NSQWc0aUFBQ2hCQUE0aE1OcmZRSUFFRW9BR3ZBbUJSeEJBSUQ5ZVd0cFFRQjY4RGdCdXhNQWdGQUNBT3pNZ2JVTEFXakRRd1hzU3dDQVBYbFRhVVFBT3ZGb0FUc1NBR0EzM2xGNkVRQ0FVQUxRakRjc3l2TGhiRWNBQUVJSlFEL2VzeWpJeDdJakFXakp3MFlwUHBCTkNRQkFLQUhveWpzWFJmZ285aVVBd1AxTS85WUVvREhQSHZBZUF0Q2JCckNRajE5M0FnRGN3L1FmUUFEYTh4eHlQcCs2R1FSZ0FrOGpjQWNCR0VJRE9JMFAyeGdDQUx5QjZUK0pBTXpoeWVSb1BtUERDTUFvbmsvZ2RnSXdqUVlBTnhJQWdGQUNBQkJLQUFCQ0NRQkFLQUVBQ0NVQUFLRUVBQ0NVQUFDRUVnQ0FVQUlBRUVvQUFFSUpBRUFvQVFBSUpRQUFvUVFBSUpRQUFJUVNBSUJRQWdBUVNnQUFRZ2tBUUNnQkFBZ2xBQUNoQkFBZ2xBQUFoQklBZ0ZBQ0FCQktBQUJDQ1FCQUtBRUFDQ1VBQUtFRUFDQ1VBQUNFRWdDQVVBSUFFRW9BQUVJSkFFQW9BUUFJSlFBQW9RUUFJSlFBQUlRU0FJQlFBZ0FRU2dBQVFna0FRQ2dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkFDQUJCS0FBQkNDUUJBS0FFQUNDVUFBS0VFQUNDVUFBQ0VFZ0NBVUFJQUVFb0FBRUlKQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWdsQUFBaEJJQWdGQUNBQkRxNCtvRnNML3YzNzZ1WGdMUWdCTUFRQ2dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkFDQUJCS0FBQkNDUUJBS0FFQUNDVUFBS0VFQUNDVUFBQ0VFZ0NBVUFJQUVFb0FBRUlKQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWcxS2tCK1AzUGY4Lzh6d0cwYythY2RBSUFDQ1VBQUtFRUFDQ1VBQUNFRWdDQVVBSUFFT3JzQVBoTlVJQ2ZPWGxDT2dFQWhCSUFnRkFDQUJCS0FBQkNMUWlBbndNRFBIWCtiSFFDQUFnbEFBQ2gxZ1RBdDBBQUR5MlppazRBQUtFRUFDQ1VBQUNFV2hZQVB3WUF1RmcxRDUwQUFFS3RESUJEQU1EQ1NlZ0VBQkJLQUFCQ0xRNkFiNEdBWkd0bm9CTUFRS2oxQVhBSUFESXRuMzdyQXdEQUVnSUFFS3BFQUphZmd3Qk9WbUh1bFFnQUFPZXJFb0FLTVFRNFI1R0pWeVVBQUp5c1VBQ0tKQkhnVUhWbVhhRUFBSENtV2dHb0UwYUFJNVNhY3JVQ3NCVzdPd0E3cWpiZnlnVUFnSE5VREVDMVNBSzhYOEhKVmpFQVc4azdCWEMzbWpPdGFBQUFPRnJkQU5RTUpzQmJsWjFtZFFPd0ZiNXJBRGVxUE1kS0J3Q0E0MVFQUU9WNEFyeXMrQVNySG9DdC9CMEVlRmI5MmRVZ0FGdUgrd2p3VUl1cDFTTUFBT3l1VFFCYTVCUmc2ek92MmdSZzYzTlBnV1NOSmxXbkFHeXQ3aXdRcU5lTWFoYUFyZHY5QlhLMG0wNzlBckExdk12QWVCM25Vc3NBYkQzdk5UQlYwNG5VTlFCYjJ6c09ETk4zRmpVT3dOYjV2Z016dEo1Q3ZRT3dOYi83UUd2ZDUwLzdBR3o5OXdEb2FNRGttUkNBYmNST0FJM01tRGxEQXJCTjJRK2d2akhUWms0QXRrRzdBcFExYWM1OCtQVDV5K28xN08rZnYzNWJ2UVJnbWttai8yTFVDZUJxM2o0QmE0MmNLak1Ec0EzZExXQ0pxZk5rNWxkQUQvazZDTGpiMU5GL01mWUVjRFY3LzREampKOGU4MDhBVjQ0Q3dJM0dqLzZMK1NlQXE1QWRCZDRwWjFZRW5RQ3VIQVdBWitXTS9vdWdFOEJWMmg0RHR3aWNESWtuZ0N0SEFXQ0xIUDBYMFFHNGtBR0lGVHY2THdUZ0J4bUFLT0dqLzBJQUhsTUNHTXpjZjBnQW5pY0RNSXpSLzVRQXZFSUpvRFZ6L3dVQ2NCTVpnSGFNL2xjSndKdUpBWlJsNkwrSkFOeFBDYUFJYy84K0FyQWJQWURUbVBpN0VJQmpxUUs4azFsL0hBRUFDSlg0ajhFQnNBa0FRQ3dCQUFnbEFBQ2hCQUFnbEFBQWhCSUFnRkFDQUJCS0FBQkNDUUJBS0FFQUNDVUFBS0VFQUNDVUFBQ0VFZ0NBVUFJQUVFb0FBRUlKQUVBb0FRQUlKUUFBb1FRQUlKUUFBSVFTQUlCUUFnQVFTZ0FBUWdrQVFDZ0JBQWdsQUFDaEJBQWdsQUFBaEJJQWdGQUNBQkJLQUFCQ0NRQkFxUDhBWFBsNXMxUzVVTE1BQUFBQVNVVk9SSzVDWUlJPSIsICJzaXplcyI6ICI1MTJ4NTEyIiwgInR5cGUiOiAiaW1hZ2UvcG5nIiwgInB1cnBvc2UiOiAiYW55IG1hc2thYmxlIn1dfQ==" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" />
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-database-compat.js"></script>
+<style>
+  html,body{margin:0;padding:0;background:#14171A;}
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  .posapp { font-family: 'Inter', system-ui, sans-serif; background: #14171A; color: #FBF7EE; }
+  .display { font-family: 'Oswald', 'Inter', sans-serif; letter-spacing: 0.01em; }
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+  .card { background: #1E2328; border: 1px solid #33393F; border-radius: 10px; }
+  .btn { border-radius: 8px; font-weight: 600; border:none; cursor:pointer; }
+  .btn:active { transform: scale(0.96); }
+  .btn-amber { background: #E3A23D; color: #201705; }
+  .btn-ghost { background: transparent; border: 1px solid #33393F; color: #FBF7EE; }
+  .btn-green { background: #6FA97A; color: #0f2013; }
+  .btn-danger { background: #D6553F; color: #fff; }
+  .tab-bar { background: #1E2328; border-top: 1px solid #33393F; padding-bottom: env(safe-area-inset-bottom); }
+  .tab-btn { color: #8B9199; background:none; border:none; cursor:pointer; }
+  .tab-btn.active { color: #E3A23D; }
+  .ticket { background: #FBF7EE; color: #241F19; border-radius: 12px; }
+  .input { background: #262C33; border: 1px solid #33393F; color: #FBF7EE; border-radius: 8px; padding: 8px 10px; width: 100%; font-size:14px; }
+  .input:focus { outline: none; border-color: #E3A23D; }
+  .stock-low { color: #D6553F; }
+  .stock-ok { color: #6FA97A; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; } ::-webkit-scrollbar-thumb { background: #33393F; border-radius: 3px; }
+  button { font-family: inherit; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+const firebaseConfig = {
+  apiKey: "AIzaSyDgOExiCnNExx5Ycg2PHq4pCj-EvRLk0wc",
+  authDomain: "inven-5a439.firebaseapp.com",
+  databaseURL: "https://inven-5a439-default-rtdb.firebaseio.com",
+  projectId: "inven-5a439",
+  storageBucket: "inven-5a439.firebasestorage.app",
+  messagingSenderId: "779762634104",
+  appId: "1:779762634104:web:721959d15dda2445de8c8d"
+};
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.database();
+const DATA_PATH = 'posData';
+function sanitizeUsername(u) { return u.trim().toLowerCase().replace(/\s+/g, '_').replace(/[.#$\[\]]/g, '_'); }
+function usernameToEmail(u) { return sanitizeUsername(u) + '@cocinapos.app'; }
+function authErrorMessage(e) {
+  const map = {
+    'auth/email-already-in-use': 'Ese usuario ya existe',
+    'auth/weak-password': 'La contraseña debe tener al menos 6 caracteres',
+    'auth/invalid-email': 'Usuario inválido',
+    'auth/user-not-found': 'Usuario o contraseña incorrectos',
+    'auth/wrong-password': 'Usuario o contraseña incorrectos',
+    'auth/invalid-credential': 'Usuario o contraseña incorrectos',
+    'auth/too-many-requests': 'Demasiados intentos, espera un momento',
+  };
+  return (e && map[e.code]) || 'Ocurrió un error, intenta de nuevo';
+}
+const WHATSAPP_NUMBER = '527221113779';
+function waLink(text) { return 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(text); }
+const money = (n) => '$' + Number(n).toFixed(2);
+const uid = (p) => p + Math.random().toString(36).slice(2, 9);
+function toDateKey(d) { const dt = new Date(d); return dt.getFullYear() + '-' + String(dt.getMonth() + 1).padStart(2, '0') + '-' + String(dt.getDate()).padStart(2, '0'); }
+function todayKey() { return toDateKey(new Date()); }
+function shiftDateKey(key, delta) { const d = new Date(key + 'T00:00:00'); d.setDate(d.getDate() + delta); return toDateKey(d); }
+function formatDateLabel(key) { const d = new Date(key + 'T00:00:00'); return d.toLocaleDateString('es', { weekday: 'long', day: 'numeric', month: 'long' }); }
+
+const seedInventory = [
+  { id: 'i1', name: 'Carne de res (150g)', unit: 'porción', stock: 40, minStock: 10 },
+  { id: 'i2', name: 'Pan de hamburguesa', unit: 'unidad', stock: 35, minStock: 10 },
+  { id: 'i3', name: 'Queso cheddar', unit: 'tajada', stock: 60, minStock: 15 },
+  { id: 'i4', name: 'Lechuga', unit: 'porción', stock: 25, minStock: 5 },
+  { id: 'i5', name: 'Tomate', unit: 'porción', stock: 30, minStock: 5 },
+  { id: 'i6', name: 'Papa', unit: 'porción', stock: 50, minStock: 10 },
+  { id: 'i7', name: 'Pechuga de pollo', unit: 'porción', stock: 20, minStock: 5 },
+  { id: 'i8', name: 'Tortilla de maíz', unit: 'unidad', stock: 80, minStock: 20 },
+  { id: 'i9', name: 'Aceite (ml)', unit: 'ml', stock: 3000, minStock: 500 },
+  { id: 'i10', name: 'Salsa especial', unit: 'porción', stock: 15, minStock: 5 },
+];
+
+const seedRecipes = [
+  { id: 'r1', name: 'Hamburguesa clásica', category: 'Platos fuertes', price: 8.5,
+    ingredients: [ { invId: 'i1', qty: 1 }, { invId: 'i2', qty: 1 }, { invId: 'i3', qty: 1 }, { invId: 'i4', qty: 1 }, { invId: 'i5', qty: 1 }, { invId: 'i10', qty: 1 } ] },
+  { id: 'r2', name: 'Papas fritas', category: 'Acompañamientos', price: 3.5,
+    ingredients: [ { invId: 'i6', qty: 1 }, { invId: 'i9', qty: 100 } ] },
+  { id: 'r3', name: 'Tacos de pollo (3u)', category: 'Platos fuertes', price: 7,
+    ingredients: [ { invId: 'i7', qty: 1 }, { invId: 'i8', qty: 3 }, { invId: 'i5', qty: 1 } ] },
+  { id: 'r4', name: 'Ensalada fresca', category: 'Entradas', price: 4.5,
+    ingredients: [ { invId: 'i4', qty: 2 }, { invId: 'i5', qty: 1 } ] },
+];
+
+function Icon({ children, size = 16 }) {
+  return <span style={{ fontSize: size, lineHeight: 1, display: 'inline-block' }}>{children}</span>;
+}
+
+function App() {
+  const [loaded, setLoaded] = useState(false);
+  const [authChecked, setAuthChecked] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currentRole, setCurrentRole] = useState(null);
+  const [inventory, setInventory] = useState(seedInventory);
+  const [recipes, setRecipes] = useState(seedRecipes);
+  const [sales, setSales] = useState([]);
+  const [movements, setMovements] = useState([]);
+  const [cart, setCart] = useState([]);
+  const [ventaDate, setVentaDate] = useState(todayKey());
+  const [view, setView] = useState('dashboard');
+  const [cartOpen, setCartOpen] = useState(false);
+  const [toast, setToast] = useState(null);
+  const [itemModal, setItemModal] = useState(null);
+  const [recipeModal, setRecipeModal] = useState(null);
+  const [movementModal, setMovementModal] = useState(null);
+  const [deleteSaleModal, setDeleteSaleModal] = useState(null);
+  const [deletedOrders, setDeletedOrders] = useState([]);
+  const toastTimer = useRef(null);
+  const saveTimer = useRef(null);
+  const lastRemoteRef = useRef(null);
+
+  useEffect(() => {
+    const unsub = auth.onAuthStateChanged(user => {
+      setCurrentUser(user ? user.email.split('@')[0] : null);
+      setAuthChecked(true);
+      if (!user) { setLoaded(false); setCurrentRole(null); }
+    });
+    return unsub;
+  }, []);
+
+  useEffect(() => {
+    if (!currentUser) return;
+    const roleRef = db.ref('roles/' + currentUser);
+    let cancelled = false;
+    (async () => {
+      try {
+        const mySnap = await roleRef.once('value');
+        if (mySnap.val() == null) {
+          const rolesSnap = await db.ref('roles').once('value');
+          const rolesVal = rolesSnap.val();
+          const initialRole = (!rolesVal || Object.keys(rolesVal).length === 0) ? 'admin' : 'staff';
+          if (!cancelled) await roleRef.set(initialRole);
+        }
+      } catch (e) { /* si falla, el listener de abajo cae a 'staff' por seguridad */ }
+    })();
+    const listener = roleRef.on('value', snap => {
+      const role = snap.val() || 'staff';
+      setCurrentRole(role);
+      if (role === 'staff') setView('inventario');
+    });
+    return () => { cancelled = true; roleRef.off('value', listener); };
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (!currentUser) return;
+    const ref = db.ref(DATA_PATH);
+    const listener = ref.on('value', snap => {
+      const val = snap.val();
+      const str = JSON.stringify(val);
+      if (str !== lastRemoteRef.current) {
+        lastRemoteRef.current = str;
+        if (val) {
+          if (val.inventory) setInventory(val.inventory);
+          if (val.recipes) setRecipes(val.recipes);
+          if (val.sales) setSales(val.sales);
+          if (val.movements) setMovements(val.movements);
+          if (val.deletedOrders) setDeletedOrders(val.deletedOrders);
+        }
+      }
+      setLoaded(true);
+    }, err => { console.error(err); setLoaded(true); });
+    return () => ref.off('value', listener);
+  }, [currentUser]);
+
+  useEffect(() => {
+    if (!loaded || !currentUser || currentRole === 'staff') return;
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => {
+      const payload = { inventory, recipes, sales, movements, deletedOrders };
+      const str = JSON.stringify(payload);
+      if (str === lastRemoteRef.current) return;
+      lastRemoteRef.current = str;
+      db.ref(DATA_PATH).set(payload).catch(e => console.error('No se pudo guardar', e));
+    }, 400);
+  }, [inventory, recipes, sales, movements, deletedOrders, loaded, currentUser, currentRole]);
+
+  useEffect(() => {
+    if (!loaded || !currentUser || currentRole !== 'staff') return;
+    if (saveTimer.current) clearTimeout(saveTimer.current);
+    saveTimer.current = setTimeout(() => {
+      const payload = { inventory, recipes, sales, movements, deletedOrders };
+      const str = JSON.stringify(payload);
+      if (str === lastRemoteRef.current) return;
+      lastRemoteRef.current = str;
+      db.ref(DATA_PATH + '/inventory').set(inventory).catch(e => console.error('No se pudo guardar', e));
+    }, 400);
+  }, [inventory, loaded, currentUser, currentRole]);
+
+  async function handleLogin(username, password) {
+    try { await auth.signInWithEmailAndPassword(usernameToEmail(username), password); return ''; }
+    catch (e) { return authErrorMessage(e); }
+  }
+
+  async function handleRegister(username, password, code) {
+    if (!username.trim() || !password) return 'Completa usuario y contraseña';
+    try { await auth.createUserWithEmailAndPassword(usernameToEmail(username), password); }
+    catch (e) { return authErrorMessage(e); }
+    try {
+      const rolesSnap = await db.ref('roles').once('value');
+      const rolesVal = rolesSnap.val();
+      const bootstrap = !rolesVal || Object.keys(rolesVal).length === 0;
+      if (!bootstrap) {
+        const cleanCode = (code || '').trim().toUpperCase();
+        let valid = false;
+        if (cleanCode) {
+          const codeSnap = await db.ref('inviteCodes/' + cleanCode).once('value');
+          const codeVal = codeSnap.val();
+          if (codeVal && !codeVal.used) valid = true;
+        }
+        if (!valid) {
+          try { await auth.currentUser.delete(); } catch (e) {}
+          await auth.signOut();
+          return cleanCode ? 'Código inválido o ya usado' : 'Necesitas un código de invitación, pídeselo a tu administrador';
+        }
+        await db.ref('inviteCodes/' + cleanCode).update({ used: true, usedBy: sanitizeUsername(username), usedAt: Date.now() });
+      }
+    } catch (e) {
+      try { await auth.currentUser.delete(); } catch (e2) {}
+      await auth.signOut();
+      return 'No se pudo validar el código, intenta de nuevo';
+    }
+    return '';
+  }
+
+  function handleLogout() { auth.signOut(); }
+
+  function showToast(text, type = 'info') {
+    if (toastTimer.current) clearTimeout(toastTimer.current);
+    setToast({ text, type });
+    toastTimer.current = setTimeout(() => setToast(null), 2600);
+  }
+
+  function maxMakeable(recipe) {
+    let max = Infinity;
+    for (const ing of recipe.ingredients) {
+      const inv = inventory.find(i => i.id === ing.invId);
+      if (!inv) return 0;
+      max = Math.min(max, Math.floor(inv.stock / ing.qty));
+    }
+    return max === Infinity ? 0 : max;
+  }
+
+  function addToCart(recipe) {
+    if (maxMakeable(recipe) < 1) { showToast('Sin insumos suficientes para ' + recipe.name, 'error'); return; }
+    setInventory(prev => prev.map(inv => {
+      const ing = recipe.ingredients.find(x => x.invId === inv.id);
+      return ing ? { ...inv, stock: +(inv.stock - ing.qty).toFixed(3) } : inv;
+    }));
+    setCart(prev => {
+      const existing = prev.find(c => c.recipeId === recipe.id);
+      if (existing) return prev.map(c => c.recipeId === recipe.id ? { ...c, qty: c.qty + 1 } : c);
+      return [...prev, { recipeId: recipe.id, name: recipe.name, price: recipe.price, qty: 1 }];
+    });
+    showToast(recipe.name + ' agregado — insumos descontados', 'success');
+  }
+
+  function returnIngredients(recipeId, times) {
+    const recipe = recipes.find(r => r.id === recipeId);
+    if (!recipe) return;
+    setInventory(prev => prev.map(inv => {
+      const ing = recipe.ingredients.find(x => x.invId === inv.id);
+      return ing ? { ...inv, stock: +(inv.stock + ing.qty * times).toFixed(3) } : inv;
+    }));
+  }
+
+  function removeOneFromCart(recipeId) {
+    returnIngredients(recipeId, 1);
+    setCart(prev => prev.flatMap(c => c.recipeId !== recipeId ? [c] : (c.qty <= 1 ? [] : [{ ...c, qty: c.qty - 1 }])));
+  }
+
+  function removeAllFromCart(recipeId) {
+    const item = cart.find(c => c.recipeId === recipeId);
+    if (item) returnIngredients(recipeId, item.qty);
+    setCart(prev => prev.filter(c => c.recipeId !== recipeId));
+  }
+
+  function cancelOrder() {
+    cart.forEach(item => returnIngredients(item.recipeId, item.qty));
+    setCart([]); setCartOpen(false);
+    showToast('Orden cancelada, insumos devueltos al inventario', 'info');
+  }
+
+  function checkout() {
+    if (cart.length === 0) return;
+    const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
+    const time = ventaDate === todayKey() ? new Date().toISOString() : ventaDate + 'T12:00:00';
+    setSales(prev => [...prev, { id: uid('v'), items: cart, total, time }]);
+    setCart([]); setCartOpen(false);
+    showToast('Venta cobrada: ' + money(total) + (ventaDate !== todayKey() ? ' (' + formatDateLabel(ventaDate) + ')' : ''), 'success');
+  }
+
+  function registerManualSale(recipe, qty, dateKey) {
+    if (!qty || qty <= 0) return;
+    const avail = maxMakeable(recipe);
+    if (qty > avail) { showToast('Solo hay insumos para ' + avail + ' de ' + recipe.name, 'error'); return; }
+    setInventory(prev => prev.map(inv => {
+      const ing = recipe.ingredients.find(x => x.invId === inv.id);
+      return ing ? { ...inv, stock: +(inv.stock - ing.qty * qty).toFixed(3) } : inv;
+    }));
+    const time = dateKey === todayKey() ? new Date().toISOString() : dateKey + 'T12:00:00';
+    setSales(prev => [...prev, { id: uid('v'), items: [{ recipeId: recipe.id, name: recipe.name, price: recipe.price, qty }], total: recipe.price * qty, time }]);
+    showToast('Registradas ' + qty + ' venta(s) de ' + recipe.name, 'success');
+  }
+
+  function registerMovement(type, invId, qty, note, dateKey) {
+    if (!qty || qty <= 0) return;
+    const inv = inventory.find(i => i.id === invId);
+    if (!inv) return;
+    setInventory(prev => prev.map(i => {
+      if (i.id !== invId) return i;
+      const stock = type === 'entrada' ? i.stock + qty : Math.max(0, i.stock - qty);
+      return { ...i, stock: +stock.toFixed(3) };
+    }));
+    setMovements(prev => [...prev, { id: uid('m'), type, invId, qty, note: note || '', date: dateKey, time: new Date().toISOString() }]);
+    showToast(type === 'entrada' ? ('Entrada registrada: +' + qty + ' ' + inv.unit + ' de ' + inv.name) : ('Salida registrada: -' + qty + ' ' + inv.unit + ' de ' + inv.name), 'success');
+  }
+
+  function deleteSaleQuantity(dateKey, productName, qtyToRemove, reason) {
+    let remaining = qtyToRemove;
+    let revenueRemoved = 0;
+    let matchedRecipeId = null;
+    const updatedSales = [];
+    for (const s of sales) {
+      if (toDateKey(s.time) !== dateKey || remaining <= 0) { updatedSales.push(s); continue; }
+      let saleChanged = false;
+      const newItems = [];
+      for (const it of s.items) {
+        if (it.name === productName && remaining > 0) {
+          matchedRecipeId = matchedRecipeId || it.recipeId;
+          const removeQty = Math.min(remaining, it.qty);
+          remaining -= removeQty;
+          revenueRemoved += removeQty * it.price;
+          saleChanged = true;
+          const leftQty = it.qty - removeQty;
+          if (leftQty > 0) newItems.push({ ...it, qty: leftQty });
+        } else {
+          newItems.push(it);
+        }
+      }
+      if (!saleChanged) { updatedSales.push(s); continue; }
+      if (newItems.length === 0) continue;
+      const newTotal = newItems.reduce((sum, x) => sum + x.price * x.qty, 0);
+      updatedSales.push({ ...s, items: newItems, total: newTotal });
+    }
+    const removedQty = qtyToRemove - remaining;
+    if (removedQty <= 0) { showToast('No había esa cantidad para eliminar', 'error'); return false; }
+    setSales(updatedSales);
+    const recipe = recipes.find(r => r.id === matchedRecipeId) || recipes.find(r => r.name === productName);
+    if (recipe) {
+      setInventory(prev => prev.map(inv => {
+        const ing = recipe.ingredients.find(x => x.invId === inv.id);
+        return ing ? { ...inv, stock: +(inv.stock + ing.qty * removedQty).toFixed(3) } : inv;
+      }));
+    }
+    setDeletedOrders(prev => [...prev, { id: uid('d'), date: dateKey, product: productName, qty: removedQty, revenue: revenueRemoved, reason, time: new Date().toISOString() }]);
+    showToast('Eliminadas ' + removedQty + ' de ' + productName + ' — insumos devueltos', 'success');
+    return true;
+  }
+
+  function saveInventoryItem(data) {
+    setInventory(prev => {
+      const exists = prev.some(i => i.id === data.id);
+      return exists ? prev.map(i => i.id === data.id ? data : i) : [...prev, { ...data, id: uid('i') }];
+    });
+    setItemModal(null);
+  }
+
+  function deleteInventoryItem(id) {
+    const usedIn = recipes.filter(r => r.ingredients.some(ing => ing.invId === id));
+    if (usedIn.length > 0) { showToast('No se puede borrar: lo usan ' + usedIn.map(r => r.name).join(', '), 'error'); return; }
+    setInventory(prev => prev.filter(i => i.id !== id));
+  }
+
+  function saveRecipe(data) {
+    setRecipes(prev => {
+      const exists = prev.some(r => r.id === data.id);
+      return exists ? prev.map(r => r.id === data.id ? data : r) : [...prev, { ...data, id: uid('r') }];
+    });
+    setRecipeModal(null);
+  }
+
+  function deleteRecipe(id) { setRecipes(prev => prev.filter(r => r.id !== id)); }
+
+  const cartCount = cart.reduce((s, c) => s + c.qty, 0);
+  const cartTotal = cart.reduce((s, c) => s + c.price * c.qty, 0);
+  const categories = [...new Set(recipes.map(r => r.category || 'Otros'))];
+
+  return (
+    <div className="posapp" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      {!authChecked ? (
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, color: '#8B9199' }}>Cargando…</div>
+      ) : !currentUser ? (
+        <AuthScreen onLogin={handleLogin} onRegister={handleRegister} />
+      ) : !currentRole ? (
+        <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 14, color: '#8B9199' }}>Cargando…</div>
+      ) : (
+      <React.Fragment>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', borderBottom: '1px solid #33393F', paddingTop: 'calc(env(safe-area-inset-top) + 12px)' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Icon size={20}>👨‍🍳</Icon>
+          <span className="display" style={{ fontSize: 18, fontWeight: 600 }}>Cocina POS</span>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <div className="mono" style={{ fontSize: 12, color: '#8B9199' }}>
+            Ventas hoy: <span style={{ color: '#E3A23D' }}>{money(sales.filter(s => toDateKey(s.time) === todayKey()).reduce((s, v) => s + v.total, 0))}</span>
+          </div>
+          <button onClick={handleLogout} style={{ background: 'none', border: 'none', color: '#8B9199', textDecoration: 'underline', fontSize: 11, cursor: 'pointer' }}>Salir ({currentUser} · {currentRole === 'admin' ? 'Admin' : 'Personal'})</button>
+        </div>
+      </div>
+
+      <div style={{ flex: 1, overflowY: 'auto', paddingBottom: 96 }}>
+        {currentRole === 'admin' && view === 'dashboard' && <DashboardView recipes={recipes} inventory={inventory} sales={sales} />}
+        {currentRole === 'admin' && view === 'venta' && <VentaView recipes={recipes} categories={categories} maxMakeable={maxMakeable} addToCart={addToCart} ventaDate={ventaDate} setVentaDate={setVentaDate} />}
+        {currentRole === 'admin' && view === 'productos' && (
+          <ProductosView recipes={recipes} inventory={inventory} maxMakeable={maxMakeable} onEdit={(r) => setRecipeModal({ data: r })} onNew={() => setRecipeModal({ data: { id: uid('r'), name: '', category: '', price: '', ingredients: [] } })} onDelete={deleteRecipe} onRegisterSale={registerManualSale} />
+        )}
+        {view === 'inventario' && (
+          <InventarioView role={currentRole} inventory={inventory} movements={movements} onEdit={(it) => setItemModal({ data: it })} onNew={() => setItemModal({ data: { id: uid('i'), name: '', unit: '', stock: 0, minStock: 0 } })} onDelete={deleteInventoryItem} onQuickAdjust={(id, delta) => setInventory(prev => prev.map(i => i.id === id ? { ...i, stock: Math.max(0, +(i.stock + delta).toFixed(3)) } : i))} onEntrada={() => setMovementModal({ type: 'entrada' })} onSalida={() => setMovementModal({ type: 'salida' })} />
+        )}
+        {currentRole === 'admin' && view === 'historial' && <HistorialView sales={sales} movements={movements} inventory={inventory} deletedOrders={deletedOrders} onRequestDelete={(date, products) => setDeleteSaleModal({ date, products })} />}
+        {currentRole === 'admin' && view === 'usuarios' && <UsersView currentUser={currentUser} />}
+      </div>
+
+      {currentRole === 'admin' && view === 'venta' && cartCount > 0 && !cartOpen && (
+        <button onClick={() => setCartOpen(true)} className="btn btn-amber" style={{ position: 'fixed', left: 16, right: 16, bottom: 84, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '12px 16px', boxShadow: '0 6px 20px rgba(0,0,0,0.4)' }}>
+          <span style={{ display: 'flex', alignItems: 'center', gap: 8 }}><Icon>🧾</Icon> Ver orden ({cartCount})</span>
+          <span className="mono">{money(cartTotal)}</span>
+        </button>
+      )}
+
+      <div className="tab-bar" style={{ position: 'fixed', bottom: 0, left: 0, right: 0, display: 'flex', justifyContent: 'space-around', paddingTop: 8, overflowX: 'auto' }}>
+        {(currentRole === 'admin' ? [
+          { k: 'dashboard', label: 'Panel', icon: '📊' },
+          { k: 'venta', label: 'Vender', icon: '🛍️' },
+          { k: 'productos', label: 'Productos', icon: '🍽️' },
+          { k: 'inventario', label: 'Inventario', icon: '📦' },
+          { k: 'historial', label: 'Historial', icon: '📅' },
+          { k: 'usuarios', label: 'Usuarios', icon: '👥' },
+        ] : [
+          { k: 'inventario', label: 'Inventario', icon: '📦' },
+        ]).map(t => (
+          <button key={t.k} onClick={() => setView(t.k)} className={'tab-btn' + (view === t.k ? ' active' : '')} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, padding: '4px 10px' }}>
+            <Icon size={18}>{t.icon}</Icon>
+            <span style={{ fontSize: 10, fontWeight: 500 }}>{t.label}</span>
+          </button>
+        ))}
+      </div>
+
+      {cartOpen && (
+        <div onClick={() => setCartOpen(false)} style={{ position: 'fixed', inset: 0, zIndex: 40, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', background: 'rgba(0,0,0,0.6)' }}>
+          <div className="ticket" onClick={e => e.stopPropagation()} style={{ padding: 16, margin: '0 12px 12px', maxHeight: '75vh', overflowY: 'auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+              <span className="display" style={{ fontSize: 18, fontWeight: 600 }}>Orden actual</span>
+              <button onClick={() => setCartOpen(false)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#241F19' }}><Icon size={20}>✕</Icon></button>
+            </div>
+            {cart.length === 0 ? (
+              <p style={{ fontSize: 14, color: '#6b655a' }}>No hay productos en la orden.</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, borderTop: '1px dashed #c9c2b0', borderBottom: '1px dashed #c9c2b0' }}>
+                {cart.map(c => (
+                  <div key={c.recipeId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '8px 0', borderBottom: '1px dashed #e2ddce' }}>
+                    <div style={{ flex: 1 }}>
+                      <div style={{ fontSize: 14, fontWeight: 600 }}>{c.name}</div>
+                      <div className="mono" style={{ fontSize: 12, color: '#8a8271' }}>{money(c.price)} c/u</div>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                      <button onClick={() => removeOneFromCart(c.recipeId)} className="btn btn-ghost" style={{ borderColor: '#c9c2b0', color: '#241F19', width: 28, height: 28 }}>−</button>
+                      <span className="mono" style={{ fontSize: 14, width: 16, textAlign: 'center' }}>{c.qty}</span>
+                      <button onClick={() => addToCart(recipes.find(r => r.id === c.recipeId))} className="btn btn-ghost" style={{ borderColor: '#c9c2b0', color: '#241F19', width: 28, height: 28 }}>+</button>
+                      <button onClick={() => removeAllFromCart(c.recipeId)} style={{ marginLeft: 4, background: 'none', border: 'none', color: '#D6553F', cursor: 'pointer' }}><Icon size={16}>🗑</Icon></button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', margin: '12px 0 16px' }}>
+              <span className="display" style={{ fontWeight: 600 }}>Total</span>
+              <span className="mono" style={{ fontSize: 20, fontWeight: 600 }}>{money(cartTotal)}</span>
+            </div>
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={cancelOrder} disabled={cart.length === 0} className="btn btn-ghost" style={{ flex: 1, padding: '10px 0', borderColor: '#c9c2b0', color: '#241F19', opacity: cart.length === 0 ? 0.4 : 1 }}>Cancelar</button>
+              <button onClick={checkout} disabled={cart.length === 0} className="btn btn-amber" style={{ flex: 1, padding: '10px 0', opacity: cart.length === 0 ? 0.4 : 1 }}>Cobrar</button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {itemModal && <ItemModal data={itemModal.data} onClose={() => setItemModal(null)} onSave={saveInventoryItem} />}
+      {recipeModal && <RecipeModal data={recipeModal.data} inventory={inventory} onClose={() => setRecipeModal(null)} onSave={saveRecipe} />}
+      {movementModal && <MovementModal type={movementModal.type} inventory={inventory} onClose={() => setMovementModal(null)} onSave={(invId, qty, note, dateKey) => { registerMovement(movementModal.type, invId, qty, note, dateKey); setMovementModal(null); }} />}
+      {deleteSaleModal && (
+        <DeleteSaleModal
+          date={deleteSaleModal.date}
+          products={deleteSaleModal.products}
+          onClose={() => setDeleteSaleModal(null)}
+          onConfirm={(productName, qty, reason, pwd) => {
+            if (pwd !== 'Aron') { showToast('Contraseña incorrecta', 'error'); return; }
+            const ok = deleteSaleQuantity(deleteSaleModal.date, productName, qty, reason);
+            if (ok) setDeleteSaleModal(null);
+          }}
+        />
+      )}
+
+      {toast && (
+        <div style={{ position: 'fixed', top: 'calc(env(safe-area-inset-top) + 12px)', left: 16, right: 16, zIndex: 50, padding: '12px 16px', borderRadius: 8, fontSize: 14, fontWeight: 500, display: 'flex', alignItems: 'center', gap: 8, background: toast.type === 'error' ? '#D6553F' : toast.type === 'success' ? '#6FA97A' : '#262C33', color: '#fff', border: '1px solid #33393F' }}>
+          <Icon>{toast.type === 'error' ? '⚠️' : '✓'}</Icon> {toast.text}
+        </div>
+      )}
+      </React.Fragment>
+      )}
+    </div>
+  );
+}
+
+function AuthScreen({ onLogin, onRegister }) {
+  const [mode, setMode] = useState('login');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [code, setCode] = useState('');
+  const [error, setError] = useState('');
+  const [busy, setBusy] = useState(false);
+
+  async function submit() {
+    if (busy) return;
+    setError('');
+    setBusy(true);
+    const err = mode === 'login' ? await onLogin(username.trim(), password) : await onRegister(username.trim(), password, code);
+    setBusy(false);
+    if (err) setError(err);
+  }
+
+  return (
+    <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '0 24px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 24 }}>
+        <Icon size={28}>👨‍🍳</Icon>
+        <span className="display" style={{ fontSize: 22, fontWeight: 600 }}>Cocina POS</span>
+      </div>
+      <div className="card" style={{ padding: 16, width: '100%', maxWidth: 340 }}>
+        <div style={{ display: 'flex', gap: 8, marginBottom: 12 }}>
+          <button onClick={() => { setMode('login'); setError(''); }} className={'btn ' + (mode === 'login' ? 'btn-amber' : 'btn-ghost')} style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600, justifyContent: 'center' }}>Iniciar sesión</button>
+          <button onClick={() => { setMode('register'); setError(''); }} className={'btn ' + (mode === 'register' ? 'btn-amber' : 'btn-ghost')} style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600, justifyContent: 'center' }}>Registrarme</button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Usuario</label>
+          <input className="input" value={username} onChange={e => setUsername(e.target.value)} onKeyDown={e => e.key === 'Enter' && submit()} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Contraseña (mín. 6 caracteres)</label>
+          <input type="password" className="input" value={password} onChange={e => setPassword(e.target.value)} onKeyDown={e => e.key === 'Enter' && submit()} />
+          {mode === 'register' && (
+            <React.Fragment>
+              <label style={{ fontSize: 12, color: '#8B9199' }}>Código de invitación</label>
+              <input className="input" style={{ textTransform: 'uppercase' }} value={code} onChange={e => setCode(e.target.value)} onKeyDown={e => e.key === 'Enter' && submit()} placeholder="Pídeselo a tu administrador" />
+            </React.Fragment>
+          )}
+          {error && <p style={{ fontSize: 12, color: '#D6553F' }}>{error}</p>}
+          <button onClick={submit} disabled={busy || !username.trim() || !password} className="btn btn-amber" style={{ padding: '10px 0', marginTop: 8, justifyContent: 'center', opacity: (busy || !username.trim() || !password) ? 0.5 : 1 }}>
+            {busy ? 'Espera…' : mode === 'login' ? 'Entrar' : 'Crear cuenta'}
+          </button>
+        </div>
+      </div>
+      <p style={{ fontSize: 11, color: '#8B9199', marginTop: 16, textAlign: 'center', maxWidth: 300 }}>
+        Todos los que inicien sesión aquí comparten el mismo inventario, recetas y ventas — se sincroniza solo entre celulares.
+      </p>
+    </div>
+  );
+}
+
+function generateInviteCode() {
+  const chars = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  let code = '';
+  for (let i = 0; i < 6; i++) code += chars[Math.floor(Math.random() * chars.length)];
+  return code;
+}
+
+function UsersView({ currentUser }) {
+  const [roles, setRoles] = useState(null);
+  const [busyKey, setBusyKey] = useState(null);
+  const [codes, setCodes] = useState(null);
+  const [generating, setGenerating] = useState(false);
+
+  useEffect(() => {
+    const ref = db.ref('roles');
+    const listener = ref.on('value', snap => setRoles(snap.val() || {}));
+    return () => ref.off('value', listener);
+  }, []);
+
+  useEffect(() => {
+    const ref = db.ref('inviteCodes');
+    const listener = ref.on('value', snap => setCodes(snap.val() || {}));
+    return () => ref.off('value', listener);
+  }, []);
+
+  async function toggleRole(key, current) {
+    setBusyKey(key);
+    try { await db.ref('roles/' + key).set(current === 'admin' ? 'staff' : 'admin'); }
+    catch (e) {}
+    setBusyKey(null);
+  }
+
+  async function handleGenerateCode() {
+    setGenerating(true);
+    const code = generateInviteCode();
+    try { await db.ref('inviteCodes/' + code).set({ createdAt: Date.now(), used: false, createdBy: currentUser }); }
+    catch (e) {}
+    setGenerating(false);
+  }
+
+  async function revokeCode(code) {
+    try { await db.ref('inviteCodes/' + code).remove(); } catch (e) {}
+  }
+
+  const entries = roles ? Object.entries(roles) : [];
+  const codeEntries = codes ? Object.entries(codes).sort((a, b) => (b[1].createdAt || 0) - (a[1].createdAt || 0)) : [];
+  const appUrl = window.location.origin + window.location.pathname;
+
+  return (
+    <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>Códigos de invitación</div>
+        <p style={{ fontSize: 12, color: '#8B9199', marginBottom: 10 }}>Genera un código y compártelo con la persona que quieres invitar. Solo funciona una vez.</p>
+        <button onClick={handleGenerateCode} disabled={generating} className="btn btn-amber" style={{ width: '100%', padding: '10px 0', justifyContent: 'center', fontSize: 12, fontWeight: 600, opacity: generating ? 0.5 : 1 }}>
+          {generating ? 'Generando…' : '+ Generar código'}
+        </button>
+        {codeEntries.length > 0 && (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 12 }}>
+            {codeEntries.map(([code, info]) => (
+              <div key={code} style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid #33393F', paddingTop: 8 }}>
+                <div>
+                  <div className="mono" style={{ fontSize: 16, fontWeight: 600, letterSpacing: 1 }}>{code}</div>
+                  <div style={{ fontSize: 11, color: info.used ? '#D6553F' : '#6FA97A' }}>{info.used ? 'Usado por ' + info.usedBy : 'Disponible'}</div>
+                </div>
+                {!info.used && (
+                  <div style={{ display: 'flex', gap: 8 }}>
+                    <a
+                      href={'https://api.whatsapp.com/send?text=' + encodeURIComponent('Tu código de invitación para Cocina POS es: ' + code + '\n' + appUrl)}
+                      target="_blank" rel="noopener noreferrer"
+                      style={{ color: '#25D366', display: 'flex', alignItems: 'center' }}
+                    >
+                      <Icon size={18}>📲</Icon>
+                    </a>
+                    <button onClick={() => revokeCode(code)} style={{ background: 'none', border: 'none', color: '#D6553F', cursor: 'pointer' }}><Icon size={16}>🗑</Icon></button>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 10, fontSize: 12, color: '#8B9199' }}>
+        Administrador: acceso completo. Personal: solo puede ver el inventario y registrar entradas de insumos.
+      </div>
+      {roles === null ? (
+        <p style={{ fontSize: 12, color: '#8B9199' }}>Cargando…</p>
+      ) : entries.length === 0 ? (
+        <p style={{ fontSize: 12, color: '#8B9199' }}>Aún no hay usuarios registrados.</p>
+      ) : (
+        entries.map(([key, role]) => (
+          <div key={key} className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600 }}>{key}</div>
+              <div style={{ fontSize: 12, color: role === 'admin' ? '#E3A23D' : '#8B9199' }}>{role === 'admin' ? 'Administrador' : 'Personal'}</div>
+            </div>
+            <button onClick={() => toggleRole(key, role)} disabled={busyKey === key} className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: 11, fontWeight: 600, opacity: busyKey === key ? 0.5 : 1 }}>
+              {role === 'admin' ? 'Quitar admin' : 'Hacer admin'}
+            </button>
+          </div>
+        ))
+      )}
+    </div>
+  );
+}
+
+function DashboardView({ recipes, inventory, sales }) {
+  const todaySales = sales.filter(s => toDateKey(s.time) === todayKey());
+  const todayRevenue = todaySales.reduce((s, v) => s + v.total, 0);
+  const todayOrders = todaySales.length;
+  const avgTicket = todayOrders > 0 ? todayRevenue / todayOrders : 0;
+
+  const soldByProduct = {};
+  recipes.forEach(r => { soldByProduct[r.name] = { qty: 0, revenue: 0 }; });
+  sales.forEach(s => s.items.forEach(it => {
+    if (!soldByProduct[it.name]) soldByProduct[it.name] = { qty: 0, revenue: 0 };
+    soldByProduct[it.name].qty += it.qty;
+    soldByProduct[it.name].revenue += it.price * it.qty;
+  }));
+  const allProductsSold = Object.entries(soldByProduct).map(([name, d]) => ({ name, ...d })).sort((a, b) => b.qty - a.qty);
+  const topProducts = allProductsSold.filter(p => p.qty > 0).slice(0, 5);
+  const maxQty = Math.max(1, ...topProducts.map(p => p.qty));
+
+  const lowStock = inventory.filter(i => i.stock <= i.minStock);
+  const recent = [...sales].sort((a, b) => new Date(b.time) - new Date(a.time)).slice(0, 5);
+
+  return (
+    <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+        <div className="card" style={{ padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#8B9199' }}><Icon size={13}>💲</Icon> Ventas de hoy</div>
+          <div className="mono" style={{ fontSize: 20, fontWeight: 600, marginTop: 4, color: '#E3A23D' }}>{money(todayRevenue)}</div>
+        </div>
+        <div className="card" style={{ padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#8B9199' }}><Icon size={13}>🧾</Icon> Pedidos hoy</div>
+          <div className="mono" style={{ fontSize: 20, fontWeight: 600, marginTop: 4 }}>{todayOrders}</div>
+        </div>
+        <div className="card" style={{ padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#8B9199' }}><Icon size={13}>📈</Icon> Ticket promedio</div>
+          <div className="mono" style={{ fontSize: 20, fontWeight: 600, marginTop: 4 }}>{money(avgTicket)}</div>
+        </div>
+        <div className="card" style={{ padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, fontSize: 12, color: '#8B9199' }}><Icon size={13}>⚠️</Icon> Insumos en alerta</div>
+          <div className="mono" style={{ fontSize: 20, fontWeight: 600, marginTop: 4, color: lowStock.length > 0 ? '#D6553F' : '#6FA97A' }}>{lowStock.length}</div>
+        </div>
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>Productos más vendidos</div>
+        {topProducts.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#8B9199' }}>Aún no hay ventas registradas.</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {topProducts.map(p => (
+              <div key={p.name}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: 12, marginBottom: 3 }}>
+                  <span>{p.name}</span><span className="mono">{p.qty}</span>
+                </div>
+                <div style={{ background: '#262C33', borderRadius: 4, height: 8, overflow: 'hidden' }}>
+                  <div style={{ width: (p.qty / maxQty * 100) + '%', height: '100%', background: '#E3A23D' }} />
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>Cantidad vendida por producto</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 4, maxHeight: 220, overflowY: 'auto' }}>
+          {allProductsSold.map(p => (
+            <div key={p.name} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: 14, borderBottom: '1px solid #33393F', padding: '4px 0' }}>
+              <span>{p.name}</span>
+              <span style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+                <span className="mono" style={{ color: '#E3A23D' }}>{p.qty} vend.</span>
+                <span className="mono" style={{ fontSize: 11, color: '#8B9199' }}>{money(p.revenue)}</span>
+              </span>
+            </div>
+          ))}
+          {allProductsSold.length === 0 && <p style={{ fontSize: 12, color: '#8B9199' }}>Aún no hay productos.</p>}
+        </div>
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: lowStock.length > 0 ? '#D6553F' : undefined }}>
+          <Icon size={14}>⚠️</Icon> Stock bajo
+        </div>
+        {lowStock.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#8B9199' }}>Todo el inventario está por encima del mínimo.</p>
+        ) : (
+          <React.Fragment>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginBottom: 12 }}>
+            {lowStock.map(i => (
+              <div key={i.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+                <span>{i.name}</span><span className="mono stock-low">{i.stock} {i.unit}</span>
+              </div>
+            ))}
+          </div>
+          <a
+            href={waLink('⚠️ Alerta de stock bajo:\n' + lowStock.map(i => '- ' + i.name + ': quedan ' + i.stock + ' ' + i.unit).join('\n'))}
+            target="_blank" rel="noopener noreferrer"
+            className="btn"
+            style={{ width: '100%', padding: '10px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: 12, fontWeight: 600, background: '#25D366', color: '#0b3d1f', textDecoration: 'none' }}
+          >
+            <Icon size={15}>📲</Icon> Avisar todo por WhatsApp
+          </a>
+          </React.Fragment>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8 }}>Últimas ventas</div>
+        {recent.length === 0 ? (
+          <p style={{ fontSize: 12, color: '#8B9199' }}>No se han cobrado ventas todavía.</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {recent.map(s => (
+              <div key={s.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, borderBottom: '1px solid #33393F', paddingBottom: 6 }}>
+                <div>
+                  <div>{s.items.map(it => it.qty + 'x ' + it.name).join(', ')}</div>
+                  <div style={{ fontSize: 11, color: '#8B9199' }}>{new Date(s.time).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+                <span className="mono" style={{ color: '#E3A23D' }}>{money(s.total)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function VentaView({ recipes, categories, maxMakeable, addToCart, ventaDate, setVentaDate }) {
+  const isToday = ventaDate === todayKey();
+  return (
+    <div style={{ padding: '16px 16px 0' }}>
+      <div className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, marginBottom: 16, borderColor: isToday ? '#33393F' : '#E3A23D' }}>
+        <div>
+          <div style={{ fontSize: 12, fontWeight: 600, color: '#8B9199' }}>Fecha de la orden</div>
+          {!isToday && <div style={{ fontSize: 11, color: '#E3A23D' }}>Registrando venta de un día anterior</div>}
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <input type="date" className="input" style={{ width: 150 }} value={ventaDate} onChange={e => setVentaDate(e.target.value)} />
+          {!isToday && <button onClick={() => setVentaDate(todayKey())} className="btn btn-ghost" style={{ fontSize: 11, padding: '4px 8px' }}>Hoy</button>}
+        </div>
+      </div>
+      {categories.map(cat => (
+        <div key={cat} style={{ marginBottom: 20 }}>
+          <div className="display" style={{ fontSize: 13, fontWeight: 600, marginBottom: 8, color: '#E3A23D' }}>{cat}</div>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            {recipes.filter(r => (r.category || 'Otros') === cat).map(r => {
+              const avail = maxMakeable(r);
+              const out = avail < 1;
+              return (
+                <button key={r.id} disabled={out} onClick={() => addToCart(r)} className="card" style={{ padding: 12, textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 4, opacity: out ? 0.45 : 1, cursor: out ? 'default' : 'pointer' }}>
+                  <span style={{ fontSize: 14, fontWeight: 600 }}>{r.name}</span>
+                  <span className="mono" style={{ fontSize: 14, color: '#E3A23D' }}>{money(r.price)}</span>
+                  <span style={{ fontSize: 11, color: out ? '#D6553F' : '#8B9199' }}>{out ? 'Agotado' : 'Disp: ' + avail}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      ))}
+      {recipes.length === 0 && <p style={{ fontSize: 14, color: '#8B9199' }}>Aún no hay recetas. Crea una en la pestaña Productos.</p>}
+    </div>
+  );
+}
+
+function InventarioView({ role, inventory, movements, onEdit, onNew, onDelete, onQuickAdjust, onEntrada, onSalida }) {
+  const isAdmin = role === 'admin';
+  const [sub, setSub] = useState('stock');
+  const [moveDate, setMoveDate] = useState(todayKey());
+  const invName = (id) => { const i = inventory.find(x => x.id === id); return i ? i.name : '?'; };
+  const invUnit = (id) => { const i = inventory.find(x => x.id === id); return i ? i.unit : ''; };
+  const dayEntradas = movements.filter(m => m.type === 'entrada' && m.date === moveDate);
+  const daySalidas = movements.filter(m => m.type === 'salida' && m.date === moveDate);
+
+  return (
+    <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+      {!isAdmin && (
+        <div className="card" style={{ padding: 10, fontSize: 12, color: '#8B9199', marginBottom: 4 }}>
+          Solo puedes ver el inventario y registrar entradas de insumos.
+        </div>
+      )}
+      <div style={{ display: 'grid', gridTemplateColumns: isAdmin ? '1fr 1fr 1fr' : '1fr', gap: 8, marginBottom: 4 }}>
+        <button onClick={onEntrada} className="btn btn-green" style={{ padding: '10px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, fontSize: 11, fontWeight: 600 }}><Icon size={16}>⬇️</Icon> Entrada</button>
+        {isAdmin && <button onClick={onSalida} className="btn btn-danger" style={{ padding: '10px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, fontSize: 11, fontWeight: 600 }}><Icon size={16}>⬆️</Icon> Salida</button>}
+        {isAdmin && <button onClick={onNew} className="btn btn-ghost" style={{ padding: '10px 0', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, fontSize: 11, fontWeight: 600 }}>+ Insumo</button>}
+      </div>
+
+      <div style={{ display: 'flex', gap: 8, marginBottom: 4 }}>
+        <button onClick={() => setSub('stock')} className={'btn ' + (sub === 'stock' ? 'btn-amber' : 'btn-ghost')} style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600 }}>Stock actual</button>
+        <button onClick={() => setSub('movimientos')} className={'btn ' + (sub === 'movimientos' ? 'btn-amber' : 'btn-ghost')} style={{ flex: 1, padding: '8px 0', fontSize: 12, fontWeight: 600 }}>Movimientos por fecha</button>
+      </div>
+
+      {sub === 'stock' && inventory.map(it => {
+        const low = it.stock <= it.minStock;
+        return (
+          <div key={it.id} className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <div>
+              <div style={{ fontSize: 14, fontWeight: 600 }}>{it.name}</div>
+              <div className={'mono ' + (low ? 'stock-low' : 'stock-ok')} style={{ fontSize: 12 }}>{it.stock} {it.unit} {low && '· bajo'}</div>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              {low && (
+                <a href={waLink('⚠️ ' + it.name + ' está por terminarse — quedan ' + it.stock + ' ' + it.unit + '.')} target="_blank" rel="noopener noreferrer" style={{ color: '#25D366', display: 'flex' }}>
+                  <Icon size={16}>📲</Icon>
+                </a>
+              )}
+              {isAdmin && <button onClick={() => onQuickAdjust(it.id, -1)} className="btn btn-ghost" style={{ width: 28, height: 28 }}>−</button>}
+              {isAdmin && <button onClick={() => onQuickAdjust(it.id, 1)} className="btn btn-ghost" style={{ width: 28, height: 28 }}>+</button>}
+              {isAdmin && <button onClick={() => onEdit(it)} style={{ background: 'none', border: 'none', color: '#E3A23D', cursor: 'pointer' }}><Icon size={16}>✏️</Icon></button>}
+              {isAdmin && <button onClick={() => onDelete(it.id)} style={{ background: 'none', border: 'none', color: '#D6553F', cursor: 'pointer' }}><Icon size={16}>🗑</Icon></button>}
+            </div>
+          </div>
+        );
+      })}
+
+      {sub === 'movimientos' && (
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
+          <div className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+            <button onClick={() => setMoveDate(shiftDateKey(moveDate, -1))} className="btn btn-ghost" style={{ width: 32, height: 32 }}>‹</button>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <span className="display" style={{ fontSize: 13, fontWeight: 600, textTransform: 'capitalize' }}>{formatDateLabel(moveDate)}</span>
+              <input type="date" className="input mono" style={{ width: 150, textAlign: 'center', fontSize: 12, marginTop: 4 }} value={moveDate} onChange={e => setMoveDate(e.target.value)} />
+            </div>
+            <button onClick={() => setMoveDate(shiftDateKey(moveDate, 1))} className="btn btn-ghost" style={{ width: 32, height: 32 }}>›</button>
+          </div>
+          {moveDate !== todayKey() && (
+            <button onClick={() => setMoveDate(todayKey())} className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: 12, alignSelf: 'center' }}>Volver a hoy</button>
+          )}
+
+          <div className="card" style={{ padding: 12 }}>
+            <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: '#6FA97A' }}><Icon size={14}>⬇️</Icon> Entradas</div>
+            {dayEntradas.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin entradas este día.</p> : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {dayEntradas.map(m => (
+                  <div key={m.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+                    <span>{invName(m.invId)}{m.note && <span style={{ fontSize: 11, color: '#8B9199' }}> · {m.note}</span>}</span>
+                    <span className="mono stock-ok">+{m.qty} {invUnit(m.invId)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div className="card" style={{ padding: 12 }}>
+            <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: '#D6553F' }}><Icon size={14}>⬆️</Icon> Salidas</div>
+            {daySalidas.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin salidas este día.</p> : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+                {daySalidas.map(m => (
+                  <div key={m.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+                    <span>{invName(m.invId)}{m.note && <span style={{ fontSize: 11, color: '#8B9199' }}> · {m.note}</span>}</span>
+                    <span className="mono stock-low">-{m.qty} {invUnit(m.invId)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ProductosView({ recipes, inventory, maxMakeable, onEdit, onNew, onDelete, onRegisterSale }) {
+  const [saleDate, setSaleDate] = useState(todayKey());
+  return (
+    <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8 }}>
+        <span style={{ fontSize: 12, fontWeight: 600, color: '#8B9199' }}>Fecha para ventas manuales</span>
+        <input type="date" className="input" style={{ width: 150 }} value={saleDate} onChange={e => setSaleDate(e.target.value)} />
+      </div>
+      <button onClick={onNew} className="btn btn-amber" style={{ padding: '10px 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 4 }}>+ Nueva receta</button>
+      {recipes.map(r => (
+        <ProductRow key={r.id} recipe={r} inventory={inventory} avail={maxMakeable(r)} onEdit={onEdit} onDelete={onDelete} onSell={(qty) => onRegisterSale(r, qty, saleDate)} />
+      ))}
+      {recipes.length === 0 && <p style={{ fontSize: 14, color: '#8B9199' }}>Aún no hay productos creados.</p>}
+    </div>
+  );
+}
+
+function ProductRow({ recipe, inventory, avail, onEdit, onDelete, onSell }) {
+  const [qty, setQty] = useState('');
+  return (
+    <div className="card" style={{ padding: 12 }}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div>
+          <div style={{ fontSize: 14, fontWeight: 600 }}>{recipe.name}</div>
+          <div style={{ fontSize: 12, color: '#8B9199' }}>{recipe.category} · <span className="mono">{money(recipe.price)}</span> · disp: {avail}</div>
+        </div>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+          <button onClick={() => onEdit(recipe)} style={{ background: 'none', border: 'none', color: '#E3A23D', cursor: 'pointer' }}><Icon size={16}>✏️</Icon></button>
+          <button onClick={() => onDelete(recipe.id)} style={{ background: 'none', border: 'none', color: '#D6553F', cursor: 'pointer' }}><Icon size={16}>🗑</Icon></button>
+        </div>
+      </div>
+      <div style={{ fontSize: 12, marginTop: 8, color: '#8B9199' }}>
+        {recipe.ingredients.map(ing => { const inv = inventory.find(i => i.id === ing.invId); return inv ? (inv.name + ' x' + ing.qty) : ''; }).filter(Boolean).join(' · ')}
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 10, borderTop: '1px dashed #33393F', paddingTop: 10 }}>
+        <input type="number" min="1" placeholder="Cant. vendida" className="input" style={{ flex: 1 }} value={qty} onChange={e => setQty(e.target.value)} />
+        <button onClick={() => { const n = Number(qty); if (n > 0) { onSell(n); setQty(''); } }} className="btn btn-amber" style={{ padding: '8px 12px', fontSize: 12, fontWeight: 600 }}>Registrar venta</button>
+      </div>
+    </div>
+  );
+}
+
+function HistorialView({ sales, movements, inventory, deletedOrders, onRequestDelete }) {
+  const [date, setDate] = useState(todayKey());
+  const daySales = sales.filter(s => toDateKey(s.time) === date);
+  const dayEntradas = movements.filter(m => m.type === 'entrada' && m.date === date);
+  const daySalidas = movements.filter(m => m.type === 'salida' && m.date === date);
+  const totalVentas = daySales.reduce((s, v) => s + v.total, 0);
+  const invName = (id) => { const i = inventory.find(x => x.id === id); return i ? i.name : '?'; };
+  const invUnit = (id) => { const i = inventory.find(x => x.id === id); return i ? i.unit : ''; };
+
+  const dayProductTotals = {};
+  daySales.forEach(s => s.items.forEach(it => {
+    if (!dayProductTotals[it.name]) dayProductTotals[it.name] = { name: it.name, qty: 0, revenue: 0 };
+    dayProductTotals[it.name].qty += it.qty;
+    dayProductTotals[it.name].revenue += it.price * it.qty;
+  }));
+  const dayProductList = Object.values(dayProductTotals);
+  const dayDeleted = (deletedOrders || []).filter(d => d.date === date).sort((a, b) => new Date(b.time) - new Date(a.time));
+
+  return (
+    <div style={{ padding: '16px 16px 0', display: 'flex', flexDirection: 'column', gap: 16 }}>
+      <div className="card" style={{ padding: 12, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <button onClick={() => setDate(shiftDateKey(date, -1))} className="btn btn-ghost" style={{ width: 32, height: 32 }}>‹</button>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <span className="display" style={{ fontSize: 13, fontWeight: 600, textTransform: 'capitalize' }}>{formatDateLabel(date)}</span>
+          <input type="date" className="input mono" style={{ width: 150, textAlign: 'center', fontSize: 12, marginTop: 4 }} value={date} onChange={e => setDate(e.target.value)} />
+        </div>
+        <button onClick={() => setDate(shiftDateKey(date, 1))} className="btn btn-ghost" style={{ width: 32, height: 32 }}>›</button>
+      </div>
+      {date !== todayKey() && (
+        <button onClick={() => setDate(todayKey())} className="btn btn-ghost" style={{ padding: '6px 12px', fontSize: 12, alignSelf: 'center' }}>Volver a hoy</button>
+      )}
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <span>Ventas del día</span>
+          <span className="mono" style={{ color: '#E3A23D' }}>{money(totalVentas)}</span>
+        </div>
+        {daySales.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin ventas registradas este día.</p> : (
+          <React.Fragment>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {daySales.map(s => (
+              <div key={s.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14, borderBottom: '1px solid #33393F', paddingBottom: 6 }}>
+                <div>
+                  <div>{s.items.map(it => it.qty + 'x ' + it.name).join(', ')}</div>
+                  <div style={{ fontSize: 11, color: '#8B9199' }}>{new Date(s.time).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })}</div>
+                </div>
+                <span className="mono">{money(s.total)}</span>
+              </div>
+            ))}
+          </div>
+          <button onClick={() => onRequestDelete(date, dayProductList)} className="btn btn-danger" style={{ width: '100%', padding: '10px 0', marginTop: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 6, fontSize: 12, fontWeight: 600 }}>
+            <Icon size={14}>🗑</Icon> Eliminar platillos de una venta
+          </button>
+          </React.Fragment>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: '#8B9199' }}><Icon size={14}>🗑</Icon> Pedidos eliminados</div>
+        {dayDeleted.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin eliminaciones este día.</p> : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            {dayDeleted.map(d => (
+              <div key={d.id} style={{ fontSize: 14, borderBottom: '1px solid #33393F', paddingBottom: 6 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span>{d.qty}x {d.product}</span>
+                  <span className="mono stock-low">-{money(d.revenue)}</span>
+                </div>
+                <div style={{ fontSize: 11, color: '#8B9199' }}>Motivo: {d.reason} · {new Date(d.time).toLocaleTimeString('es', { hour: '2-digit', minute: '2-digit' })}</div>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: '#6FA97A' }}><Icon size={14}>⬇️</Icon> Entradas de inventario</div>
+        {dayEntradas.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin entradas este día.</p> : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {dayEntradas.map(m => (
+              <div key={m.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+                <span>{invName(m.invId)}{m.note && <span style={{ fontSize: 11, color: '#8B9199' }}> · {m.note}</span>}</span>
+                <span className="mono stock-ok">+{m.qty} {invUnit(m.invId)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="card" style={{ padding: 12 }}>
+        <div className="display" style={{ fontSize: 14, fontWeight: 600, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 4, color: '#D6553F' }}><Icon size={14}>⬆️</Icon> Salidas de inventario</div>
+        {daySalidas.length === 0 ? <p style={{ fontSize: 12, color: '#8B9199' }}>Sin salidas este día.</p> : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 4 }}>
+            {daySalidas.map(m => (
+              <div key={m.id} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 14 }}>
+                <span>{invName(m.invId)}{m.note && <span style={{ fontSize: 11, color: '#8B9199' }}> · {m.note}</span>}</span>
+                <span className="mono stock-low">-{m.qty} {invUnit(m.invId)}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ItemModal({ data, onClose, onSave }) {
+  const [form, setForm] = useState(data);
+  const valid = form.name.trim() && form.unit.trim() && form.stock !== '' && form.minStock !== '';
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16, background: 'rgba(0,0,0,0.6)' }}>
+      <div className="card" style={{ padding: 16, width: '100%', maxWidth: 380 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+          <span className="display" style={{ fontWeight: 600 }}>Insumo</span>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#FBF7EE', cursor: 'pointer' }}><Icon size={20}>✕</Icon></button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Nombre</label>
+          <input className="input" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Unidad (kg, unidad, ml...)</label>
+          <input className="input" value={form.unit} onChange={e => setForm({ ...form, unit: e.target.value })} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Stock actual</label>
+          <input type="number" className="input" value={form.stock} onChange={e => setForm({ ...form, stock: Number(e.target.value) })} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Stock mínimo (alerta)</label>
+          <input type="number" className="input" value={form.minStock} onChange={e => setForm({ ...form, minStock: Number(e.target.value) })} />
+          <button disabled={!valid} onClick={() => onSave(form)} className="btn btn-amber" style={{ padding: '10px 0', marginTop: 8, opacity: valid ? 1 : 0.5 }}>Guardar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MovementModal({ type, inventory, onClose, onSave }) {
+  const [invId, setInvId] = useState(inventory[0] ? inventory[0].id : '');
+  const [qty, setQty] = useState('');
+  const [note, setNote] = useState('');
+  const [dateKey, setDateKey] = useState(todayKey());
+  const valid = invId && Number(qty) > 0;
+  const isEntrada = type === 'entrada';
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16, background: 'rgba(0,0,0,0.6)' }}>
+      <div className="card" style={{ padding: 16, width: '100%', maxWidth: 380 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+          <span className="display" style={{ fontWeight: 600, color: isEntrada ? '#6FA97A' : '#D6553F' }}>{isEntrada ? 'Registrar entrada' : 'Registrar salida'}</span>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#FBF7EE', cursor: 'pointer' }}><Icon size={20}>✕</Icon></button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Insumo</label>
+          <select className="input" value={invId} onChange={e => setInvId(e.target.value)}>
+            {inventory.map(inv => <option key={inv.id} value={inv.id}>{inv.name} ({inv.stock} {inv.unit})</option>)}
+          </select>
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Cantidad</label>
+          <input type="number" min="0" className="input" value={qty} onChange={e => setQty(e.target.value)} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Nota (opcional)</label>
+          <input className="input" placeholder={isEntrada ? 'Ej: compra a proveedor' : 'Ej: merma, dañado'} value={note} onChange={e => setNote(e.target.value)} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Fecha</label>
+          <input type="date" className="input" value={dateKey} onChange={e => setDateKey(e.target.value)} />
+          <button disabled={!valid} onClick={() => onSave(invId, Number(qty), note, dateKey)} className={'btn ' + (isEntrada ? 'btn-green' : 'btn-danger')} style={{ padding: '10px 0', marginTop: 8, opacity: valid ? 1 : 0.5 }}>Guardar</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function DeleteSaleModal({ date, products, onClose, onConfirm }) {
+  const [productName, setProductName] = useState(products[0] ? products[0].name : '');
+  const [qty, setQty] = useState('');
+  const [reason, setReason] = useState('');
+  const [pwd, setPwd] = useState('');
+  const selected = products.find(p => p.name === productName);
+  const maxQty = selected ? selected.qty : 0;
+  const valid = productName && Number(qty) > 0 && Number(qty) <= maxQty && reason.trim() && pwd;
+
+  function submit() {
+    if (!valid) return;
+    onConfirm(productName, Number(qty), reason.trim(), pwd);
+    setPwd('');
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16, background: 'rgba(0,0,0,0.6)' }}>
+      <div className="card" style={{ padding: 16, width: '100%', maxWidth: 380 }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+          <span className="display" style={{ fontWeight: 600, fontSize: 14, color: '#D6553F' }}>Eliminar platillos de {formatDateLabel(date)}</span>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#FBF7EE', cursor: 'pointer' }}><Icon size={18}>✕</Icon></button>
+        </div>
+        <p style={{ fontSize: 12, color: '#8B9199', marginBottom: 12 }}>Selecciona el platillo y la cantidad a quitar de las ventas de este día. Los insumos usados se devuelven al inventario.</p>
+        {products.length === 0 ? (
+          <p style={{ fontSize: 14, color: '#8B9199' }}>No hay ventas este día.</p>
+        ) : (
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+            <label style={{ fontSize: 12, color: '#8B9199' }}>Platillo vendido</label>
+            <select className="input" value={productName} onChange={e => { setProductName(e.target.value); setQty(''); }}>
+              {products.map(p => <option key={p.name} value={p.name}>{p.name} (vendidos: {p.qty})</option>)}
+            </select>
+            <label style={{ fontSize: 12, color: '#8B9199' }}>Cantidad a eliminar (máx. {maxQty})</label>
+            <input type="number" min="1" max={maxQty} className="input" value={qty} onChange={e => setQty(e.target.value)} />
+            <label style={{ fontSize: 12, color: '#8B9199' }}>Motivo</label>
+            <input className="input" placeholder="Ej: pedido duplicado, error de cobro..." value={reason} onChange={e => setReason(e.target.value)} />
+            <label style={{ fontSize: 12, color: '#8B9199' }}>Contraseña</label>
+            <input type="password" className="input" value={pwd} onChange={e => setPwd(e.target.value)} onKeyDown={e => e.key === 'Enter' && submit()} />
+            <div style={{ display: 'flex', gap: 8, marginTop: 8 }}>
+              <button onClick={onClose} className="btn btn-ghost" style={{ flex: 1, padding: '10px 0' }}>Cancelar</button>
+              <button onClick={submit} disabled={!valid} className="btn btn-danger" style={{ flex: 1, padding: '10px 0', opacity: valid ? 1 : 0.5 }}>Eliminar</button>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function RecipeModal({ data, inventory, onClose, onSave }) {
+  const [form, setForm] = useState(data);
+  const valid = form.name.trim() && form.price !== '' && form.ingredients.length > 0;
+
+  function addIngredient() {
+    if (inventory.length === 0) return;
+    setForm({ ...form, ingredients: [...form.ingredients, { invId: inventory[0].id, qty: 1 }] });
+  }
+  function updateIngredient(idx, field, value) {
+    setForm({ ...form, ingredients: form.ingredients.map((ing, i) => i === idx ? { ...ing, [field]: field === 'qty' ? Number(value) : value } : ing) });
+  }
+  function removeIngredient(idx) {
+    setForm({ ...form, ingredients: form.ingredients.filter((_, i) => i !== idx) });
+  }
+
+  return (
+    <div style={{ position: 'fixed', inset: 0, zIndex: 50, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 16, background: 'rgba(0,0,0,0.6)' }}>
+      <div className="card" style={{ padding: 16, width: '100%', maxWidth: 420, maxHeight: '85vh', overflowY: 'auto' }}>
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 12 }}>
+          <span className="display" style={{ fontWeight: 600 }}>Receta / producto</span>
+          <button onClick={onClose} style={{ background: 'none', border: 'none', color: '#FBF7EE', cursor: 'pointer' }}><Icon size={20}>✕</Icon></button>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Nombre del producto</label>
+          <input className="input" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Categoría</label>
+          <input className="input" value={form.category} onChange={e => setForm({ ...form, category: e.target.value })} placeholder="Platos fuertes, Bebidas..." />
+          <label style={{ fontSize: 12, color: '#8B9199' }}>Precio de venta</label>
+          <input type="number" step="0.01" className="input" value={form.price} onChange={e => setForm({ ...form, price: Number(e.target.value) })} />
+
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginTop: 8 }}>
+            <span style={{ fontSize: 12, fontWeight: 600, color: '#8B9199' }}>Insumos que descuenta</span>
+            <button onClick={addIngredient} className="btn btn-ghost" style={{ fontSize: 12, padding: '4px 8px' }}>+ Insumo</button>
+          </div>
+          {form.ingredients.length === 0 && <p style={{ fontSize: 12, color: '#8B9199' }}>Agrega al menos un insumo para poder vender este producto.</p>}
+          {form.ingredients.map((ing, idx) => (
+            <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+              <select className="input" style={{ flex: 1 }} value={ing.invId} onChange={e => updateIngredient(idx, 'invId', e.target.value)}>
+                {inventory.map(inv => <option key={inv.id} value={inv.id}>{inv.name}</option>)}
+              </select>
+              <input type="number" className="input" style={{ width: 70 }} value={ing.qty} onChange={e => updateIngredient(idx, 'qty', e.target.value)} />
+              <button onClick={() => removeIngredient(idx)} style={{ background: 'none', border: 'none', color: '#D6553F', cursor: 'pointer' }}><Icon size={16}>🗑</Icon></button>
+            </div>
+          ))}
+
+          <button disabled={!valid} onClick={() => onSave(form)} className="btn btn-amber" style={{ padding: '10px 0', marginTop: 12, opacity: valid ? 1 : 0.5 }}>Guardar receta</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
